@@ -29,6 +29,13 @@ pipeline{
                }
             }
         }
+       stage ('deployment to prod manually'){
+                                   steps{sshagent(['deploy-to-tomcat']){
+                 input 'Do you approve deployement?' 
+                 sh 'scp -o StrictHostkeyChecking=no webapp/target/webapp.war ec2-user@172.31.3.160:/usr/share/tomcat/webapps'
+                 }
+                }}
+
     }
 }
 

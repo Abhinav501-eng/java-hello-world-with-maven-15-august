@@ -32,7 +32,7 @@ pipeline{
        stage ('deployment to prod manually'){
                                    steps{sshagent(['deploy-to-tomcat']){
                  input 'Do you approve deployement?' 
-                 sh 'scp -o StrictHostkeyChecking=no webapp/target/webapp.war ec2-user@172.31.3.160:/usr/share/tomcat/webapps'
+                 sh 'scp -o StrictHostkeyChecking=no webapp/target/webapp.warwithMavene37c161d/maven-spy-20240815-173311-7789580188422561609050.log ec2-user@172.31.3.160:/usr/share/tomcat/webapps'
                  }
                 }}
 

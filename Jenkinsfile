@@ -31,8 +31,8 @@ pipeline{
         }
 
          stage('deploye tomcat server'){
-                    steps{sshagent(credentials: ['deploy-to-tomcat']) {
-                 sh 'scp -o StrictHostkeyChecking=no jb-hello-world-maven-0.2.0-shaded.jar ec2-user@3.25.191.105:/usr/share/tomcat/webapps/'
+                    steps{sshagent(credentials: ['15_aug_tom_demo']) {
+                 sh 'scp -o StrictHostkeyChecking=no target/jb-hello-world-maven-0.2.0-shaded.jar ec2-user@172.31.39.176:/usr/share/tomcat/webapps/'
                  }
                 }}
 
